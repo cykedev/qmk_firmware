@@ -1,4 +1,4 @@
-// Copyright 2020 Christian Eiden, cykedev
+// Copyright 2021 Christian Eiden, cykedev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
