@@ -1,4 +1,4 @@
-// Copyright 2020 Christian Eiden, cykedev
+// Copyright 2021 Christian Eiden, cykedev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -18,4 +18,4 @@
 #define USE_SERIAL_PD2
 #define MASTER_LEFT
 #define TAPPING_TERM 200
-#define IGNORE_MOD_TAP_INTERRUPT_PER_KEY
+#define TAPPING_TERM_PER_KEY
