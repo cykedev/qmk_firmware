@@ -15,10 +15,10 @@
 
 #include QMK_KEYBOARD_H
 
-#define SY_SPA  LT(_SYMBOL, KC_SPC)
+#define AL_SPA  MT(MOD_RALT, KC_SPC)
 #define SH_ENT  MT(MOD_LSFT, KC_ENT)
 #define CM_COM  MT(MOD_LGUI, KC_COMM)
-#define CM_DOT  MT(MOD_RGUI, KC_DOT)
+#define SY_DOT  LT(_SYMBOL, KC_DOT)
 #define ADJ     MO(_ADJUST)
 #define QWERT   DF(_QWERTY)
 #define COLEM   DF(_COLEMAK)
@@ -41,8 +41,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * | Ctrl |   A  |   S  |   D  |   F  |   G  |-------.    ,-------|   H  |   J  |   K  |   L  |   ;  |  '   |
  * |------+------+------+------+------+------|  Del  |    | Back  |------+------+------+------+------+------|
  * |Shift |   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   ,  |   .  |   /  | Shift|
- * `-----------------------------------------/ Shift /     \  SYM \-----------------------------------------'
- *                   |  ADJ |  Alt |  Cmd | / Enter /       \ Space\  |  Cmd | Alt  | ADJ  |
+ * `-----------------------------------------/ Shift /     \  Alt \-----------------------------------------'
+ *                   |  Alt | Ctrl |  Cmd | / Enter /       \ Space\  |  SYM | Ctrl | ADJ  |
  *                   |      |      |   ,  |/       /         \      \ |   .  |      |      |
  *                   `----------------------------'           '------''--------------------'
  */
@@ -52,7 +52,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                       KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
   KC_LCTL,  KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                       KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
   KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,   KC_DEL,    KC_BSPC, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
-                             ADJ,     KC_LALT, CM_COM, SH_ENT,    SY_SPA,  CM_DOT,  KC_RALT, ADJ
+                             KC_LALT, KC_LCTL, CM_COM, SH_ENT,    AL_SPA,  SY_DOT,  KC_RCTL, ADJ
 ),
  /* COLEMAK
  * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -63,8 +63,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * | Ctrl |   A  |   R  |   S  |   T  |   D  |-------.    ,-------|   H  |   N  |   E  |   I  |   O  |  '   |
  * |------+------+------+------+------+------|  Del  |    | Back  |------+------+------+------+------+------|
  * |Shift |   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   K  |   M  |   ,  |   .  |   /  | Shift|
- * `-----------------------------------------/ Shift /     \  SYM \-----------------------------------------'
- *                   |  ADJ | Alt  |  Cmd | / Enter /       \ Space\  |  Cmd | Alt  | ADJ  |
+ * `-----------------------------------------/ Shift /     \  Alt \-----------------------------------------'
+ *                   |  Alt | Ctrl |  Cmd | / Enter /       \ Space\  |  SYM | Ctrl | ADJ  |
  *                   |      |      |   ,  |/       /         \      \ |   .  |      |      |
  *                   `----------------------------'           '------''--------------------'
  */
@@ -74,7 +74,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,   KC_Q,   KC_W,    KC_F,    KC_P,    KC_G,                       KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_BSLS,
   KC_LCTL,  KC_A,   KC_R,    KC_S,    KC_T,    KC_D,                       KC_H,    KC_N,    KC_E,    KC_I,    KC_O,    KC_QUOT,
   KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,   KC_DEL,    KC_BSPC, KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
-                             ADJ,     KC_LALT, CM_COM, SH_ENT,    SY_SPA,  CM_DOT,  KC_RALT, ADJ
+                             KC_LALT, KC_LCTL, CM_COM, SH_ENT,    AL_SPA,  SY_DOT,  KC_RCTL, ADJ
 ),
 /* SYMBOL
  * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -124,7 +124,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case CM_COM:
             return TAPPING_TERM - 50;
-        case CM_DOT:
+        case SY_DOT:
             return TAPPING_TERM - 50;
         default:
             return TAPPING_TERM;
