@@ -16,7 +16,7 @@
 #pragma once
 
 #define USE_SERIAL
-#define MASTER_LEFT
+#define EE_HANDS
 #undef  RGBLED_NUM
 #define RGBLIGHT_ANIMATIONS
 #define RGBLED_NUM 14
@@ -24,4 +24,3 @@
 #define RGBLIGHT_SAT_STEP 8
 #define RGBLIGHT_VAL_STEP 8
 #define TAPPING_TERM 200
-#define TAPPING_TERM_PER_KEY
